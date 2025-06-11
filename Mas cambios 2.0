@@ -1,0 +1,47 @@
+Inicio --> A[¿Usuario Logueado?]
+A -- No --> LOGIN[Iniciar Sesión / Registrarse]
+LOGIN --> MENÚ[Menú Principal]
+A -- Sí --> MENÚ[Menú Principal]
+
+MENÚ --> G[Explorar por Categorías]
+MENÚ --> H[Buscar Cómic]
+MENÚ --> I[Ver Cómics Guardados]
+MENÚ --> N1[Ver Novedades / Notificaciones]
+MENÚ --> J[Perfil / Ajustes]
+
+G --> G1[Seleccionar Categoría]
+G1 --> G2[Ver Lista de Cómics]
+G2 --> G3[Seleccionar Cómic]
+G2 --> G4[Agregar a Favoritos]
+G3 --> K[Ver Detalles del Cómic]
+
+H --> H1[Escribir Término de Búsqueda]
+H1 --> H2[Ver Resultados]
+H2 --> H3[Seleccionar Cómic]
+H2 --> H4[Agregar a Favoritos]
+H3 --> K
+
+K --> L{¿Leer Ahora?}
+L -- Sí --> M[Pantalla de Lectura de Cómic]
+L -- No --> O1[Guardar en Favoritos / Volver]
+
+M --> O[Leer Página por Página + Ver Progreso]
+O --> P{¿Cómic Terminado?}
+P -- Sí --> Q1[Recomendar Cómics Similares]
+Q1 --> Q2[Valorar / Comentar / Compartir]
+Q2 --> MENÚ
+P -- No --> O
+
+N1 --> N2[Ver Cómics Nuevos / Promociones] --> MENÚ
+
+J --> J1[Editar Perfil]
+J --> J2[Ver Suscripción]
+J --> J4[Cambiar Tema (Oscuro / Claro)]
+J --> J3[Cerrar Sesión]
+J3 --> CONFIRM{¿Cerrar Sesión?}
+CONFIRM -- Sí --> LOGIN
+CONFIRM -- No --> J
+
+En cualquier pantalla: opción de "Volver" al menú principal o pantalla anterior.
+
+Si error de búsqueda o conexión --> ERROR[Mostrar Mensaje de Error] --> MENÚ
