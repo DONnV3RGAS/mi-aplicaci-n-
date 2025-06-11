@@ -1,0 +1,30 @@
+graph TD
+    C[Inicio] --> G[Explorar por Categorías]
+    C --> H[Buscar Cómic]
+    C --> I[Ver Cómics Guardados]
+    C --> J[Perfil / Ajustes]
+
+    G --> G1[Seleccionar Categoría]
+    G1 --> G2[Ver Lista de Cómics]
+    G2 --> G3[Seleccionar Cómic]
+
+    H --> H1[Escribir Término de Búsqueda]
+    H1 --> H2[Ver Resultados]
+    H2 --> H3[Seleccionar Cómic]
+
+    G3 --> K[Ver Detalles del Cómic]
+    H3 --> K
+
+    K --> L{¿Leer Ahora?}
+    L -- Sí --> M[Pantalla de Lectura de Cómic]
+    L -- No --> N[Volver a Lista / Guardar en Favoritos]
+
+    M --> O[Leer Página por Página]
+    O --> P{¿Cómic Terminado?}
+    P -- Sí --> Q[Recomendar Cómics Similares]
+    P -- No --> O
+
+    J --> J1[Editar Perfil]
+    J --> J2[Ver Suscripción]
+    J --> J3[Cerrar Sesión]
+    J3 --> C[Volver a Inicio]
